@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :locations
+
+  mount Apiv1::Engine, at: "/api/v1/"
 end

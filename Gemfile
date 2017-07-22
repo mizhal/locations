@@ -71,3 +71,4 @@ gem 'jwt' # JSON web token for API auth
 
 
 
+gem 'apiv1', path: 'vendor/engines/apiv1'

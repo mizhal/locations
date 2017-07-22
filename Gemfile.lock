@@ -1,3 +1,9 @@
+PATH
+  remote: vendor/engines/apiv1
+  specs:
+    apiv1 (0.1.0)
+      rails (~> 5.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -244,6 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apiv1!
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
