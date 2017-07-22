@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root "homes#index"
+  resources :users, except: [:show, :destroy] do
+    member do
+      delete :destroy, to: "users#destroy", as: :admin_destroy  
+    end
+  end
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :locations
 end
