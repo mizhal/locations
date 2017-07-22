@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:hour_grid) %></th>
+      <th><%= model_class.human_attribute_name(:open) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
     <% @locations.each do |location| %>
       <tr>
         <td><%= link_to location.name, location_path(location) %></td>
-        <td><%= location.hour_grid %></td>
+        <td><%= location.open? ? "Yes" : "No" %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       location_path(location), :class => 'btn btn-default btn-xs' %>

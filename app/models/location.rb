@@ -7,7 +7,7 @@ class Location < ApplicationRecord
     day = Date.today.wday
     ## filtrado en memoria que son pocos elementos 
     periods.select{|p| p.day == day}
-           .select{|p| p.start.hour <= now.hour && now.hour <= p.end.hours}
+           .select{|p| p.start.hour <= now.hour && now.hour <= p.end.hour}
            .select{|p| p.start.min <= now.min && now.min <= p.end.min}
            .any?
   end
