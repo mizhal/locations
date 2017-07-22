@@ -1,5 +1,5 @@
 module LocationsHelper
   def day_to_name(number)
-    "LMXJVSD"[number]
+    "DLMXJVS"[number]
   end
 end
