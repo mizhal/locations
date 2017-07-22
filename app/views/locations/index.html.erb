@@ -5,20 +5,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:hour_grid) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= link_to location.id, location_path(location) %></td>
-        <td><%= location.name %></td>
+        <td><%= link_to location.name, location_path(location) %></td>
         <td><%= location.hour_grid %></td>
-        <td><%=l location.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       location_path(location), :class => 'btn btn-default btn-xs' %>

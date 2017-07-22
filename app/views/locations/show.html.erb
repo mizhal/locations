@@ -6,8 +6,27 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @location.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:hour_grid) %>:</strong></dt>
-  <dd><%= @location.hour_grid %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:periods) %>:</strong></dt>
+  <dd>
+    <table class="table table-stripped"> 
+      <thead>
+        <tr>
+          <td>Day</td>
+          <td>Start</td>
+          <td>End</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @location.periods.each do |per| %>
+          <tr>
+            <td><%= day_to_name(per.day) %></td>
+            <td><%= l per.start, format: "%H:%M" %></td>
+            <td><%= l per.end, format: "%H:%M" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -25,9 +25,27 @@
   <div class="form-group">
     <%= f.label :hour_grid, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :hour_grid, :class => 'form-control' %>
+      <table class="table table-stripped">
+        <tbody>
+          <%= f.fields_for :periods do |h|  %>
+            <%= h.hidden_field :id %>
+            <%= h.hidden_field :day %>
+            <tr>
+              <td><%= day_to_name(h.object.day) %></td>
+              <td>
+                <%= h.label "start" %> 
+                <%= h.time_select :start %>
+              </td>
+              <td>
+                <%= h.label "end" %> 
+                <%= h.time_select :end  %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
-    <%=f.error_span(:hour_grid) %>
+    
   </div>
 
   <div class="form-group">
